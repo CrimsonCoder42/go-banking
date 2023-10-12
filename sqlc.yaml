@@ -1,0 +1,13 @@
+version: "2"
+sql:
+- schema: "postgresql/schema.sql"
+  queries: "postgresql/query.sql"
+  engine: "postgresql"
+  gen:
+    go: 
+      package: "authors"
+      out: "postgresql"
+  database:
+    uri: "postgresql://root:secret@localhost:8080/root"
+  rules:
+    - sqlc/db-prepare
